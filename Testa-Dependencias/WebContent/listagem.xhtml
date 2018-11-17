@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>JSF 2.0 Hello World</title>
+</h:head>
+
+<h:body>
+	<h2>JSF 2.0 Hello World Example - hello.xhtml</h2>
+
+
+
+	<h3>List Students</h3>
+	<h:form rendered="#{not empty simpleCrudBean.list}">
+		<h:dataTable value="#{simpleCrudBean.list}" var="item">
+			<h:column>
+				<f:facet name="header">Titulo</f:facet>#{item.titulo}</h:column>
+			<h:column>
+				<f:facet name="header">Autor</f:facet>#{item.autor}</h:column>
+			<h:column>
+				<f:facet name="header">descricao</f:facet>#{item.descricao}</h:column>
+		</h:dataTable>
+	</h:form>
+
+	<h:panelGroup rendered="#{empty simpleCrudBean.list}">
+		<p>Sem Estudantes! Por favor Adicione.</p>
+	</h:panelGroup>
+</h:body>
+</html>
